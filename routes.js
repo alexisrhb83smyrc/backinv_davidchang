@@ -181,3 +181,28 @@ module.exports = router;
  *                   precio:
  *                     type: number
  */
+
+/**
+ * @swagger
+ * /sp:
+ *   get:
+ *     summary: Llama la SP que hace uso de la vista creada
+ *     responses:
+ *       200:
+ *         description: Storage procedure
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   nombre:
+ *                     type: string
+ *                   descripcion:
+ *                     type: string
+ *                   precio:
+ *                     type: number
+ */
