@@ -1,18 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const connection = require("./db");
+const controllers = require("./controllers");
 
-// Rutas para entradas/salidas, inventario y artículos
-// Ejemplo:
-router.get("/entradas", (req, res) => {
-  connection.query("SELECT * FROM entradas", (err, results) => {
-    if (err) {
-      console.error("Error al obtener las entradas: ", err);
-      res.status(500).send("Error al obtener las entradas");
-      return;
-    }
-    res.json(results);
-  });
-});
+router.post("/entradas", controllers.createEntrada);
+router.post("/salidas", controllers.createSalida);
+router.get("/inventario", controllers.getInventario);
+router.get("/articulos", controllers.getArticulos);
+router.get("/entradas", controllers.getEntradas); // Agregamos esta línea
 
 module.exports = router;
