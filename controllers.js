@@ -60,7 +60,6 @@ exports.getArticulos = (req, res) => {
 };
 
 exports.getEntradas = (req, res) => {
-  // Controlador para obtener las entradas
   db.query("SELECT * FROM entradas", (err, result) => {
     if (err) throw err;
     res.json(result);
@@ -68,7 +67,6 @@ exports.getEntradas = (req, res) => {
 };
 
 exports.callSP = (req, res) => {
-  // Controlador para llamar el storage procedure
   db.query("CALL obtener_vista_inventario()", (error, results, fields) => {
     if (error) {
       console.error("Error al llamar al procedimiento almacenado:", error);
