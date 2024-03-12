@@ -59,6 +59,7 @@ module.exports = router;
  *               fecha:
  *                 type: string
  *                 format: date-time
+ *                 example: "2024-03-11 17:25:34"
  *     responses:
  *       200:
  *         description: Entrada creada correctamente
@@ -87,9 +88,6 @@ module.exports = router;
  *                 type: integer
  *               cantidad:
  *                 type: integer
- *               fecha:
- *                 type: string
- *                 format: date-time
  *     responses:
  *       200:
  *         description: Entrada actualizada correctamente
@@ -131,6 +129,7 @@ module.exports = router;
  *               fecha:
  *                 type: string
  *                 format: date-time
+ *                 example: "2024-03-11 17:25:34"
  *     responses:
  *       200:
  *         description: Salida creada correctamente

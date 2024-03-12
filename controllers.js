@@ -16,8 +16,8 @@ exports.updateEntrada = (req, res) => {
   const { id } = req.params;
   const { producto_id, cantidad } = req.body;
   db.query(
-    "UPDATE entradas SET producto_id = ?, cantidad = ? WHERE id = ?",
-    [producto_id, cantidad, id],
+    "UPDATE entradas SET producto_id = ?, cantidad = ?, fecha = ? WHERE id = ?",
+    [producto_id, cantidad, new Date(), id],
     (err, result) => {
       if (err) throw err;
       res.send("Entrada actualizada correctamente");
@@ -34,10 +34,10 @@ exports.deleteEntrada = (req, res) => {
 };
 
 exports.createSalida = (req, res) => {
-  const { producto_id, cantidad } = req.body;
+  const { producto_id, cantidad, fecha } = req.body;
   db.query(
-    "INSERT INTO salidas (producto_id, cantidad) VALUES (?, ?)",
-    [producto_id, cantidad],
+    "INSERT INTO salidas (producto_id, cantidad, fecha) VALUES (?, ?, ?)",
+    [producto_id, cantidad, fecha],
     (err, result) => {
       if (err) throw err;
       res.send("Salida creada correctamente");
@@ -53,7 +53,7 @@ exports.getInventario = (req, res) => {
 };
 
 exports.getArticulos = (req, res) => {
-  db.query("SELECT * FROM articulos", (err, result) => {
+  db.query("SELECT * FROM productos", (err, result) => {
     if (err) throw err;
     res.json(result);
   });
